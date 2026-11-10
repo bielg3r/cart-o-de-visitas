@@ -1,0 +1,236 @@
+/* ==========================================================
+   Cartão de visitas digital
+   Tema escuro com azul neon suave.
+   Para mudar o visual do site todo, edite só as variáveis abaixo.
+   ========================================================== */
+
+:root {
+  --fundo: #090d16;
+  --superficie: #0f1522;
+  --borda: #1c2742;
+  --texto: #e4eaf4;
+  --texto-suave: #8d9ab3;
+  --neon: #4a9eff;          /* azul neon, um pouco apagado de propósito */
+  --neon-brilho: rgba(74, 158, 255, 0.28);
+  --neon-fraco: rgba(74, 158, 255, 0.10);
+
+  --fonte-titulo: "Sora", system-ui, sans-serif;
+  --fonte-texto: "Manrope", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--fundo);
+  background-image: radial-gradient(60rem 30rem at 50% -8rem, var(--neon-fraco), transparent 70%);
+  background-repeat: no-repeat;
+  color: var(--texto);
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+main {
+  width: min(100% - 2.5rem, 44rem);
+  margin: 0 auto;
+  padding: 4.5rem 0 3rem;
+  flex: 1;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--neon);
+}
+
+:focus-visible {
+  outline: 2px solid var(--neon);
+  outline-offset: 3px;
+}
+
+/* ---------- Cartão (Sobre) ---------- */
+
+.cartao {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem;
+  background: var(--superficie);
+  border: 1px solid var(--neon);
+  border-radius: 1.25rem;
+  box-shadow:
+    0 0 0 4px var(--neon-fraco),
+    0 0 36px var(--neon-brilho);
+}
+
+.avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 6.5rem;
+  height: 6.5rem;
+  border: 2px solid var(--neon);
+  border-radius: 50%;
+  background: var(--fundo);
+  color: var(--neon);
+  font-family: var(--fonte-titulo);
+  font-size: 1.9rem;
+  font-weight: 700;
+  box-shadow: 0 0 18px var(--neon-brilho);
+}
+
+.cartao h1 {
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+}
+
+.curso {
+  margin-top: 0.4rem;
+  color: var(--texto-suave);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 1.15rem;
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--texto);
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.botao svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.botao:hover {
+  border-color: var(--neon);
+  color: var(--neon);
+  box-shadow: 0 0 14px var(--neon-brilho);
+}
+
+/* ---------- Projetos ---------- */
+
+.projetos {
+  margin-top: 4rem;
+}
+
+.projetos h2 {
+  font-size: 1.5rem;
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.projeto {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.5rem;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.projeto:hover {
+  border-color: var(--neon);
+  box-shadow: 0 0 20px var(--neon-fraco);
+}
+
+.projeto h3 {
+  font-size: 1.1rem;
+}
+
+.projeto p {
+  color: var(--texto-suave);
+  font-size: 0.98rem;
+}
+
+.projeto a {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.projeto a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ---------- Rodapé ---------- */
+
+footer {
+  padding: 2rem 1.25rem;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ---------- Celular ---------- */
+
+@media (max-width: 36rem) {
+  main {
+    padding-top: 2.5rem;
+  }
+
+  .cartao {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.75rem;
+  }
+
+  .projetos {
+    margin-top: 3rem;
+  }
+}
+
+/* ---------- Menos movimento ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
